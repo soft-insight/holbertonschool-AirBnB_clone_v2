@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         param = {}
-       for p in range(1, len(args)):
+        for p in range(1, len(args)):
             key = args[p].split('=')
             key[1] = key[1].replace('\"', '')
             key[1] = key[1].replace('_', ' ')
@@ -327,4 +327,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    HBNBCommand().cmdloop() 
+    HBNBCommand().cmdloop()
