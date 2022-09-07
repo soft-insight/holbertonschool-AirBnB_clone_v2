@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" State Module for HBNB project """
+"""This is the state class"""
 from models.base_model import BaseModel, Base
 from models.city import City
 import models
@@ -20,8 +20,9 @@ class State(BaseModel, Base):
 
     @property
     def cities(self):
-        """Returns the list of City instances with equal state_id"""
-        cities = models.storage.all(City)
-        self.__cities = [city for city in cities.values()
-                         if city.state_id == self.id]
-        return self.__cities
+        """Return:
+        The list of City instances with state_id equals
+        to the current State.id
+        """
+        objs = models.storage.all(City)
+        return [v for k, v in objs.items() if v.state_id == self.id]
