@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
                 val = val.replace("\"", "")
                 try:
                     val = eval(val)
-                except Exception:
+                except:
                     pass
 
                 setattr(obj, key, val)
