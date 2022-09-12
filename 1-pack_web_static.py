@@ -5,8 +5,8 @@ folder of the AirBnB Clone repo
 """
 
 from datetime import datetime
+from fabric.api import local
 from os.path import isdir
-import fabric.api
 
 
 def do_pack():
@@ -14,9 +14,9 @@ def do_pack():
     try:
         date = datetime.now().strftime("%Y%m%d%H%M%S")
         if isdir("versions") is False:
-            fabric.api.local("mkdir versions")
-        file_name = f"versions/web_static_{date}.tgz"
-        fabric.api.local(f"tar -cvzf {file_name} web_static")
+            local("mkdir versions")
+        file_name = "versions/web_static_{}.tgz".format(date)
+        local("tar -cvzf {} web_static".format(file_name))
         return file_name
-    except Exception:
+    except:
         return None
